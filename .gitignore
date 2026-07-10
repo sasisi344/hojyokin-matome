@@ -1,0 +1,16 @@
+# Dependencies / build (サイト構築後)
+node_modules/
+dist/
+.astro/
+
+# Environment
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Research output (必要に応じて個別ファイルを git add)
+.workspace/research/output/
