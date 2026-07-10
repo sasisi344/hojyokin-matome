@@ -14,3 +14,6 @@ Thumbs.db
 
 # Research output (必要に応じて個別ファイルを git add)
 .workspace/research/output/
+
+# 外部リポジトリのローカル clone（refs 同期用）
+.workspace/refs/_vendor/

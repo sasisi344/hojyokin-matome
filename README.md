@@ -14,17 +14,28 @@
 - ニッチ制度の有無や希少性を比較したい読者
 - 制度の導入時期や申請の実感を知りたい方
 
+## リポジトリ方針
+
+- **GitHub**: https://github.com/sasisi344/hojyokin-matome
+- **344dev ルートから独立**した単独リポジトリとして運用（モノレポのサブフォルダではない）
+- 兄弟サイト [namagomi-techo](https://github.com/sasisi344/namagomi-techo) の自治体・公式URL索引を参照ナレッジとして同期可能
+
 ## ディレクトリ構成
 
 ```
 hojyokin-matome/
 ├── README.md                 # 本ファイル（プロジェクトの入口）
 ├── CLAUDE.md                 # Claude / Cursor 向けの基本ルール
+├── scripts/
+│   └── sync-namagomi-refs.mjs  # namagomi-techo → refs 同期
 ├── .cursor/
 │   └── skills/               # タスク別 Skill（調査・記事など）
 └── .workspace/               # 設計メモ・リサーチ用（アプリ本体とは分離）
     ├── 設計図.md
     ├── 補助金ネタ.md
+    ├── refs/                 # 外部リポジトリ由来の参照ナレッジ
+    │   ├── municipalities-index.json
+    │   └── pref-slugs.json
     └── research/             # DeepResearch 用プロンプト・出力先
         ├── README.md
         ├── prompts/
@@ -35,20 +46,28 @@ hojyokin-matome/
 
 ## AI 運用（Cursor + Claude）
 
-このプロジェクトは **Cursor** と **Claude** を併用して運用します。ルールはこれから詰めていきますが、現時点の参照順は次のとおりです。
+このプロジェクトは **Cursor** と **Claude** を併用して運用します。
 
 1. 本リポジトリの `CLAUDE.md` および `.cursor/skills/`
-2. 親ワークスペース: `C:\Users\sasis\344dev\CLAUDE.md`
-3. ユーザー設定: `~/.claude/settings.json`
+2. ユーザー設定: `~/.claude/settings.json`
 
-### Skill 一覧（初期）
+### Skill 一覧
 
 | Skill | 用途 |
 |-------|------|
 | [hojyokin-research](.cursor/skills/hojyokin-research/SKILL.md) | 補助金の DeepResearch・制度調査 |
 | [hojyokin-article](.cursor/skills/hojyokin-article/SKILL.md) | 都道府県まとめ記事の執筆・更新 |
+| [hojyokin-namagomi-refs](.cursor/skills/hojyokin-namagomi-refs/SKILL.md) | namagomi-techo の自治体・公式URL参照 |
 
-各 Skill はプレーンなひな型です。運用が固まり次第、本文を追記してください。
+### namagomi-techo 参照ナレッジ
+
+自治体名・スラッグ・公式 `.lg.jp` URL の索引を同期できます。
+
+```bash
+node scripts/sync-namagomi-refs.mjs
+```
+
+詳細: [.workspace/refs/README.md](.workspace/refs/README.md)
 
 ## 参考ドキュメント
 

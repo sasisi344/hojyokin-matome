@@ -15,6 +15,7 @@ description: 都道府県単位の補助金まとめ記事の作成・更新手�
 
 - サイト設計方針: `.workspace/設計図.md`
 - 調査レポート: `.workspace/research/output/{テーマ}/`
+- 自治体・都道府県の正規化: `.workspace/refs/`（Skill: `hojyokin-namagomi-refs`）
 - プロジェクト共通ルール: ルート `CLAUDE.md`
 
 ## 記事の基本方針（たたき台）

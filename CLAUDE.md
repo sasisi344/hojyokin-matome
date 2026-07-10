@@ -6,9 +6,11 @@
 
 ## 優先順位
 
+本リポジトリは **344dev ルートから独立**して運用する。
+
 1. 本リポジトリの `CLAUDE.md` および `.cursor/skills/`
-2. 親: `C:\Users\sasis\344dev\CLAUDE.md`（344dev ワークスペース共通）
-3. ユーザー: `~/.claude/settings.json`
+2. ユーザー: `~/.claude/settings.json`
+3. （ローカルで 344dev モノレポ内に置いている場合のみ参考）`C:\Users\sasis\344dev\CLAUDE.md`
 
 ## 技術（未定）
 
@@ -24,6 +26,18 @@
 |------|-------|
 | 補助金の調査・DeepResearch | `.cursor/skills/hojyokin-research/SKILL.md` |
 | 都道府県まとめ記事の執筆 | `.cursor/skills/hojyokin-article/SKILL.md` |
+| 自治体マスタ・公式URL参照（namagomi-techo） | `.cursor/skills/hojyokin-namagomi-refs/SKILL.md` |
+
+## 外部参照ナレッジ（namagomi-techo）
+
+自治体のスラッグ・名称・`.lg.jp` 公式URLの索引は [namagomi-techo](https://github.com/sasisi344/namagomi-techo) から同期する。
+
+- ガイド: `.workspace/refs/namagomi-techo.md`
+- 索引: `.workspace/refs/municipalities-index.json`（約1,000自治体）
+- 都道府県マスタ: `.workspace/refs/pref-slugs.json`
+- 同期: `node scripts/sync-namagomi-refs.mjs`
+
+**注意**: 索引の `officialUrl` は生ごみ処理機補助金のページ。hojyokin-matome の制度事実としてそのまま流用せず、ドメイン・自治体正規化の参照に限定する。
 
 ## 作業上の注意
 

@@ -1,0 +1,9 @@
+{
+  "namagomiTecho": {
+    "github": "https://github.com/sasisi344/namagomi-techo",
+    "localPath": "../namagomi-techo",
+    "datasetRoot": ".workspace/.dataset/pref-date",
+    "blogTs": "src/lib/blog.ts"
+  },
+  "lastSyncedAt": "2026-07-10T05:45:57.762Z"
+}

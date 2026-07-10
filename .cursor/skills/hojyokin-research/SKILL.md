@@ -16,6 +16,7 @@ description: ニッチ補助金の DeepResearch・制度調査の手順を標準
 - 調査設計・出力形式・信頼度ルール: `.workspace/research/README.md`
 - テーマ別プロンプト: `.workspace/research/prompts/`
 - ネタ・候補テーマ: `.workspace/補助金ネタ.md`
+- 自治体名・`.lg.jp` ドメインのたたき台: `.workspace/refs/municipalities-index.json`（Skill: `hojyokin-namagomi-refs`）
 
 ## 実行フロー（たたき台）
 
