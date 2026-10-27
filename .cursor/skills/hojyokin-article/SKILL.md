@@ -3,39 +3,8 @@ name: hojyokin-article
 description: 都道府県単位の補助金まとめ記事の作成・更新手順を標準化する。ニッチ補助金の都道府県ハブ記事、希少性・導入時期・申請の手がかりの執筆が必要なときに使う。
 ---
 
-# Hojyokin Article Skill
+# Hojyokin Article（Cursor 入口）
 
-## 目的
+Cursor / Claude Code 共通 Skill の **Cursor 用入口**です。作業開始時に正本を読み、手順に従ってください。
 
-- **都道府県ごとに1記事** で補助金情報をまとめる（自治体別の量産記事は作らない）
-- 調査結果（`.workspace/research/output/`）を記事の根拠にする
-- 独自性（希少性・時系列・利用者視点）を記事の差別化要素にする
-
-## 正本
-
-- サイト設計方針: `.workspace/設計図.md`
-- 調査レポート: `.workspace/research/output/{テーマ}/`
-- 自治体・都道府県の正規化: `.workspace/refs/`（Skill: `hojyokin-namagomi-refs`）
-- プロジェクト共通ルール: ルート `CLAUDE.md`
-
-## 記事の基本方針（たたき台）
-
-- **単位**: 都道府県 × テーマ（例: 静岡県の防犯グッズ補助まとめ）
-- **構成**: （未定 — テンプレート策定後に追記）
-- **文体・トーン**: （未定）
-- **内部リンク**: （未定）
-
-## 執筆前チェック（たたき台）
-
-1. 対象テーマの調査レポート（`00-executive-summary.md` 等）を読む
-2. 補助金の金額・期限は A ソース（公式）で裏取り済みか確認する
-3. 利用者の声は C ソース由来であることを本文で区別する
-4. 都道府県1記事方針に沿い、自治体別の重複記事を増やしていないか確認する
-
-## 未整備（TODO）
-
-- [ ] 記事の配置パス（`src/content/...` 等）
-- [ ] フロントマター規約（`pubDate` / `lastmod` / `tags` など）
-- [ ] 見出しテンプレート・最低文字数
-- [ ] 入稿前チェック用スクリプト
-- [ ] `.cursor/rules/` への執筆ルール分離
+**正本**: [`.agents/skills/hojyokin-article/SKILL.md`](../../.agents/skills/hojyokin-article/SKILL.md)

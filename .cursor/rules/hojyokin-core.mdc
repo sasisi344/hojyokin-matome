@@ -1,0 +1,46 @@
+---
+description: hojyokin-matome の作業境界・Skill 導線（Cursor / Claude 共通）
+alwaysApply: true
+---
+
+# Hojyokin Core Operations
+
+## ツール共通の優先順位
+
+1. [CLAUDE.md](CLAUDE.md)（Cursor / Claude Code 共通のプロジェクト指示）
+2. `.cursor/rules/`（本ファイル含む。Claude セッションでも同等ルールを適用）
+3. [`.agents/skills/`](.agents/skills/) — Skill **正本**
+4. 各ツールの入口: [`.cursor/skills/`](.cursor/skills/) / [`.claude/skills/`](.claude/skills/)
+5. ユーザー設定: `~/.claude/settings.json`
+
+## 作業範囲
+
+- 依頼範囲に限定して変更する。無関係なリファクタは行わない。
+- `.workspace/` は設計メモ・調査素材用。アプリ本体のソースと混同しない。
+- コミット・ブランチ操作はユーザーの明示依頼がある場合のみ。
+- 画像生成は明示指示がある場合のみ。
+
+## Skill 導線（用途に応じて正本を読む）
+
+| 作業 | 正本 |
+|------|------|
+| 補助金の調査・DeepResearch | [`.agents/skills/hojyokin-research/SKILL.md`](.agents/skills/hojyokin-research/SKILL.md) |
+| 都道府県まとめ記事の執筆 | [`.agents/skills/hojyokin-article/SKILL.md`](.agents/skills/hojyokin-article/SKILL.md) |
+| 自治体マスタ・公式URL参照 | [`.agents/skills/hojyokin-namagomi-refs/SKILL.md`](.agents/skills/hojyokin-namagomi-refs/SKILL.md) |
+
+## 記事・調査の方針
+
+- **記事単位**: 都道府県ごとに1記事（自治体別の量産記事は作らない）
+- **独自性**: 希少性・導入時期・利用者の声など横断的な切り口を重視
+- **ソースの信頼度**: 公式（go.jp / 自治体）を事実の主軸とし、ブログ・SNSは感想セグメントに限定
+
+## namagomi-techo 参照
+
+自治体索引の同期: `node scripts/sync-namagomi-refs.mjs`  
+索引の `officialUrl` は別制度のページ。ドメイン・自治体正規化の参照に限定し、制度事実として流用しない。
+
+## 設計ドキュメント
+
+- サイト方針: [`.workspace/設計図.md`](.workspace/設計図.md)
+- 調査ルール: [`.workspace/research/README.md`](.workspace/research/README.md)
+- テーマ候補: [`.workspace/補助金ネタ.md`](.workspace/補助金ネタ.md)

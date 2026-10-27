@@ -1,0 +1,23 @@
+---
+description: DeepResearch 調査・出力フォルダ作業時のフロー
+globs: .workspace/research/**/*
+alwaysApply: false
+---
+
+# Hojyokin Research Workflow
+
+## 正本
+
+- 調査設計・信頼度・品質チェック: [`.workspace/research/README.md`](.workspace/research/README.md)
+- 実行手順 Skill: [`.agents/skills/hojyokin-research/SKILL.md`](.agents/skills/hojyokin-research/SKILL.md)
+
+## 実行ルール
+
+- **1テーマ = 1セッション**。プロンプトや出力を混在させない。
+- 補助金の事実（金額・期限・要件）は **A ソース**（go.jp / 自治体）を主軸にする。
+- ブログ・SNSは **C ソース**として `04-user-voice.md` に分離する。
+- 自治体名・ドメインのたたき台は [`.agents/skills/hojyokin-namagomi-refs/SKILL.md`](.agents/skills/hojyokin-namagomi-refs/SKILL.md) を参照し、制度事実は自テーマで再調査する。
+
+## 出力配置
+
+`output/{テーマ}/` に `00-executive-summary.md` 〜 `sources/` を所定名で配置する。詳細は Skill 正本を参照。

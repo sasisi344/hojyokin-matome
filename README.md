@@ -25,11 +25,16 @@
 ```
 hojyokin-matome/
 ├── README.md                 # 本ファイル（プロジェクトの入口）
-├── CLAUDE.md                 # Claude / Cursor 向けの基本ルール
+├── CLAUDE.md                 # Cursor / Claude Code 共通のプロジェクト指示
+├── .agents/
+│   └── skills/               # Skill 正本（両ツール共通）
+├── .claude/
+│   └── skills/               # Claude Code 用入口（正本へ誘導）
 ├── scripts/
 │   └── sync-namagomi-refs.mjs  # namagomi-techo → refs 同期
 ├── .cursor/
-│   └── skills/               # タスク別 Skill（調査・記事など）
+│   ├── rules/                # Cursor ルール（Claude でも同等適用）
+│   └── skills/               # Cursor 用入口（正本へ誘導）
 └── .workspace/               # 設計メモ・リサーチ用（アプリ本体とは分離）
     ├── 設計図.md
     ├── 補助金ネタ.md
@@ -44,20 +49,24 @@ hojyokin-matome/
 
 サイト本体（Astro 等）のソースは、技術選定後にルート直下へ追加する想定です。
 
-## AI 運用（Cursor + Claude）
+## AI 運用（Cursor + Claude Code）
 
-このプロジェクトは **Cursor** と **Claude** を併用して運用します。
+このプロジェクトは **Cursor** と **Claude Code** を併用します。どちらに依頼しても同じルール・Skill で対処できます。
 
-1. 本リポジトリの `CLAUDE.md` および `.cursor/skills/`
-2. ユーザー設定: `~/.claude/settings.json`
+1. `CLAUDE.md` および `.cursor/rules/`
+2. `.agents/skills/`（Skill 正本）
+3. `.cursor/skills/` / `.claude/skills/`（各ツールの入口）
+4. ユーザー設定: `~/.claude/settings.json`
 
-### Skill 一覧
+詳細: [.agents/README.md](.agents/README.md)
+
+### Skill 一覧（正本）
 
 | Skill | 用途 |
 |-------|------|
-| [hojyokin-research](.cursor/skills/hojyokin-research/SKILL.md) | 補助金の DeepResearch・制度調査 |
-| [hojyokin-article](.cursor/skills/hojyokin-article/SKILL.md) | 都道府県まとめ記事の執筆・更新 |
-| [hojyokin-namagomi-refs](.cursor/skills/hojyokin-namagomi-refs/SKILL.md) | namagomi-techo の自治体・公式URL参照 |
+| [hojyokin-research](.agents/skills/hojyokin-research/SKILL.md) | 補助金の DeepResearch・制度調査 |
+| [hojyokin-article](.agents/skills/hojyokin-article/SKILL.md) | 都道府県まとめ記事の執筆・更新 |
+| [hojyokin-namagomi-refs](.agents/skills/hojyokin-namagomi-refs/SKILL.md) | namagomi-techo の自治体・公式URL参照 |
 
 ### namagomi-techo 参照ナレッジ
 
